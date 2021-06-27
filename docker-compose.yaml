@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    networks:
+      - db
+  mongo-express:
+    image: mongo-express
+    restart: always
+    networks:
+      - db
+    ports:
+      - 8081:8081
+  realworld-be:
+    image: realworld-backend:dev
+    build:
+      context: https://github.com/kawakinoko/node-express-realworld-example-app.git
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - mongo
+    networks:
+      - app
+      - db
+    ports:
+      - 3000:3000
+  realworld-fe:
+    image: realworld-frontend:dev
+    build:
+      context: https://github.com/kawakinoko/angular-realworld-example-app.git
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - realworld-be
+    networks:
+      - app
+    ports:
+      - 8000:8080
+networks:
+  app:
+    driver: bridge
+  db:
+    driver: bridge

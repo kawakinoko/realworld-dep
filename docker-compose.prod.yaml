@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  realworld-be:
+    image: realworld-backend
+    build:
+      dockerfile: Dockerfile.prod
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongo/conduit
+  realworld-fe:
+    image: realworld-frontend
+    build:
+      dockerfile: Dockerfile.prod
