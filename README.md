@@ -1,6 +1,6 @@
 > ### Example docker-compose yaml for dockerized [Node backend](https://github.com/kawakinoko/node-express-realworld-example-app) and [Angular frontend](https://github.com/kawakinoko/angular-realworld-example-app) that adheres to the [RealWorld](https://github.com/gothinkster/realworld-example-apps) API spec.
 
-# Rrerequisite
+# Prerequisite
 You need to install docker-compose
 
 Please refer [instruction](https://docs.docker.com/compose/install/)
