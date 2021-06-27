@@ -8,6 +8,7 @@ services:
     environment:
       - NODE_ENV=production
       - MONGODB_URI=mongodb://mongo/conduit
+      - SECRET=secret
   realworld-fe:
     image: realworld-frontend
     build:
